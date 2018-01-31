@@ -123,4 +123,21 @@ function dkuk_exhibition_custom_columns_data( $column, $post_id ) {
   	}
 }
 add_action( 'manage_exhibition_posts_custom_column', 'dkuk_exhibition_custom_columns_data', 10, 2);
+
+// Reorder Exhibition type posts
+// Always show them in reverse chronological order
+// EVEN on the front end - so that the archive page is ordered correctly.
+function dkuk_rev_chronological_exhibitions( $query ) {
+	// only modify queries for 'event' post type
+	if( isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'exhibition' ) {
+		$query->set('orderby', 'meta_value');
+		$query->set('meta_key', 'start_date');
+		$query->set('order', 'DESC');
+	}
+	// return
+	return $query;
+}
+add_action('pre_get_posts', 'dkuk_rev_chronological_exhibitions');
+
+
 ?>
