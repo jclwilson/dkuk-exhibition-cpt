@@ -61,4 +61,66 @@ function dkuk_exhibition_cpt() {
 }
 add_action( 'init', 'dkuk_exhibition_cpt', 0 );
 
+// Sets admin columns for Exhibitions
+function dkuk_exhibition_custom_columns( $columns ) {
+    $columns = array(
+      'cb' => $columns['cb'],
+	  'image' => __( 'Image' ),
+	  'exhibition_title' => __( 'Exhibition' ),
+	  'exhibition_organiser' => __( 'Organiser' ),
+      'start_date' => __( 'Start Date' ),
+	  'end_date' => __( 'End Date' ),
+    );
+  return $columns;
+}
+add_filter( 'manage_exhibition_posts_columns', 'dkuk_exhibition_custom_columns' );
+
+// Adds data to Exhibition admin columns
+function dkuk_exhibition_custom_columns_data( $column, $post_id ) {
+  // Image column
+	if ( 'image' === $column ) {
+		echo get_the_post_thumbnail( $post_id, array(80, 80) );
+	}
+
+	if ( $column == 'start_date' ) {
+		$start_date = get_field('start_date');
+
+		if ( ! $start_date ) {
+			_e( 'n/a' );
+		} else {
+			echo $start_date;
+		}
+	}
+
+	if ( $column == 'end_date' ) {
+		$end_date = get_field('end_date');
+
+		if ( ! $end_date ) {
+			_e( 'n/a' );
+		} else {
+			echo get_field('end_date');
+		}
+	}
+
+	if ( $column == 'exhibition_title' ) {
+		$exhibition_title = get_field('exhibition_title');
+
+    	  if ( ! $exhibition_title ) {
+    		  _e( 'n/a' );
+    	  } else {
+    		  echo edit_post_link($exhibition_title);
+    	  }
+    }
+
+	if ( $column == 'exhibition_organiser' ) {
+		$exhibition_organiser = get_field('exhibition_organiser');
+
+		if ( ! $exhibition_organiser ) {
+			_e( 'n/a' );
+		} else {
+			echo edit_post_link($exhibition_organiser);
+		}
+  	}
+}
+add_action( 'manage_exhibition_posts_custom_column', 'dkuk_exhibition_custom_columns_data', 10, 2);
 ?>
