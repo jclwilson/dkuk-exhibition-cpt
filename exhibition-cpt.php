@@ -17,14 +17,14 @@ function dkuk_exhibition_cpt() {
 		'attributes'            => __( 'Exhibition Attributes', 'dkuk' ),
 		'parent_item_colon'     => __( 'Parent Exhibition:', 'dkuk' ),
 		'all_items'             => __( 'All Exhibitions', 'dkuk' ),
-		'add_new_item'          => __( 'Add New Exhibition', 'dkuk' ),
+		'add_new_item'          => __( 'Add a new Exhibition', 'dkuk' ),
 		'add_new'               => __( 'Add New', 'dkuk' ),
 		'new_item'              => __( 'New Exhibition', 'dkuk' ),
 		'edit_item'             => __( 'Edit Exhibition', 'dkuk' ),
 		'update_item'           => __( 'Update Exhibition', 'dkuk' ),
 		'view_item'             => __( 'View Exhibition', 'dkuk' ),
 		'view_items'            => __( 'View Exhibitions', 'dkuk' ),
-		'search_items'          => __( 'Search Exhibition', 'dkuk' ),
+		'search_items'          => __( 'Search Exhibitions', 'dkuk' ),
 		'not_found'             => __( 'Not found', 'dkuk' ),
 		'not_found_in_trash'    => __( 'Not found in Trash', 'dkuk' ),
 		'featured_image'        => __( 'Featured Image', 'dkuk' ),
@@ -57,7 +57,6 @@ function dkuk_exhibition_cpt() {
 		'capability_type'       => 'post',
 	);
 	register_post_type( 'Exhibition', $exhibition_args );
-
 }
 add_action( 'init', 'dkuk_exhibition_cpt', 0 );
 
