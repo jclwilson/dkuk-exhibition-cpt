@@ -48,6 +48,7 @@ function dkuk_exhibition_cpt() {
 		'show_in_menu'          => true,
 		'menu_position'         => 5,
 		'menu_icon'             => 'dashicons-format-image',
+		'rewrite'            => array( 'slug' => 'exhibitions' ),
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
