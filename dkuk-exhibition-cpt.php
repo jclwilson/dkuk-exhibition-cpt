@@ -2,7 +2,7 @@
 // Plugin Name:			Exhibition Custom Post Type
 // Plugin URI:			https://github.com/jclwilson/dkuk-exhibition-cpt
 // Description:			Lets you publish exhibitions on the site, requires the Advanced Custom Fields (ACF) plugin to be installed.
-// Version:				1.0.0
+// Version:				1.0.1
 // Author:				Jacob Charles Wilson
 // Author URI:			https://jacobcharleswilson.com
 // License:				GNU General Public License v2
